@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catalog – Superhi</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  :root {
+    --color-blue-50: #2727e6;
+    --color-blue-20: #dedefb;
+    --color-green-50: #16ab59;
+    --color-green-30: #d0eede;
+    --color-warm-blue-50: #91d8ec;
+    --color-warm-blue-30: #cdf1fe;
+    --color-yellow-50: #ffda00;
+    --color-yellow-30: #fff099;
+    --color-red-50: #ff4141;
+    --color-orange-50: #ff7715;
+    --color-pink-50: #ffbac4;
+    --color-grey-90: #111118;
+    --color-grey-20: #ebebeb;
+    --color-grey-10: #f6f6f6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: #111118;
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+  }
+  .btn-primary {
+    background: #111118;
+    color: #fff;
+    border-radius: 100px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    border: 1.5px solid #111118;
+  }
+  .btn-outline {
+    background: transparent;
+    color: #111118;
+    border-radius: 100px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    border: 1.5px solid #111118;
+  }
+  .btn-white {
+    background: #fff;
+    color: #111118;
+    border-radius: 100px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+  }
+  .announcement-bar {
+    background: #2727e6;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    padding: 8px 16px;
+  }
+  .catalog-hero {
+    background: #eeeef8;
+  }
+  .filter-pill {
+    background: #fff;
+    border: 1.5px solid #111118;
+    border-radius: 100px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #111118;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .filter-pill.active {
+    background: #111118;
+    color: #fff;
+  }
+  .course-card {
+    background: #fff;
+    border: 1.5px solid #ebebeb;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .course-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(17,17,24,0.08);
+  }
+  .course-thumb {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .tag-foundation { color: #16ab59; }
+  .tag-course { color: #2727e6; }
+  .tag-workshop { color: #ff7715; }
+  .tag-free { color: #ff4141; }
+
+  /* Wilson (robot) circle */
+  .wilson-avatar {
+    width: 32px;
+    height: 32px;
+    background: #2727e6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- Announcement bar -->
+<div class="announcement-bar">
+  We use essential cookies to make this site work. With your consent we may also use non-essential cookies to improve user experience.
+  <span style="margin-left: 12px; text-decoration: underline; cursor: pointer;">Accept cookies &amp; close</span>
+</div>
+
+<!-- Navigation -->
+<nav style="position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(4px); border-bottom: 1.5px solid #ebebeb;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 60px;">
+    <div style="display: flex; align-items: center; gap: 32px;">
+      <a href="index.html" style="font-size: 18px; font-weight: 700; text-decoration: none; color: #111118; letter-spacing: -0.02em;">superhi</a>
+      <div style="display: flex; gap: 24px;">
+        <a href="catalog.html" style="font-size: 14px; color: #111118; text-decoration: none; font-weight: 600;">Catalog</a>
+        <a href="about.html" style="font-size: 14px; color: #111118; text-decoration: none; font-weight: 500;">About</a>
+      </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <button style="background: none; border: none; cursor: pointer; padding: 4px; display: flex; align-items: center;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111118" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      </button>
+      <a href="#" class="btn-outline" style="padding: 8px 16px; font-size: 13px;">Sign in</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="catalog-hero" style="position: relative; overflow: hidden; padding: 64px 24px 56px; text-align: center;">
+  <!-- Decorative shapes -->
+  <div style="position: absolute; left: -40px; top: 40px; width: 90px; height: 90px; background: #2727e6; border-radius: 50%;"></div>
+  <div style="position: absolute; right: 80px; top: 24px; width: 80px; height: 80px; background: #ffda00; clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);"></div>
+  <div style="position: absolute; right: -30px; bottom: -30px; width: 120px; height: 120px; background: #ff4141; border-radius: 50%;"></div>
+
+  <div style="display: inline-flex; align-items: center; gap: 6px; background: #2727e6; color: white; border-radius: 100px; padding: 6px 14px; font-size: 12px; margin-bottom: 20px;">
+    <div style="width: 20px; height: 20px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+      <span style="font-size: 10px;">😊</span>
+    </div>
+    <span>Catalog</span>
+  </div>
+
+  <h1 style="font-size: clamp(36px, 5vw, 56px); font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; max-width: 700px; margin: 0 auto 16px; color: #111118;">Browse our full catalog</h1>
+  <p style="font-size: 16px; color: #58585d; max-width: 480px; margin: 0 auto; line-height: 1.5;">
+    Courses, workshops and free lessons to help you build a creative career on your own terms.
+  </p>
+</section>
+
+<!-- Filter bar -->
+<section style="max-width: 1200px; margin: 0 auto; padding: 32px 24px 16px;">
+  <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+    <a href="#" class="filter-pill active">All</a>
+    <a href="#" class="filter-pill">Courses</a>
+    <a href="#" class="filter-pill">Workshops</a>
+    <a href="#" class="filter-pill">Free</a>
+    <a href="#" class="filter-pill">Design</a>
+    <a href="#" class="filter-pill">Development</a>
+    <a href="#" class="filter-pill">JavaScript</a>
+    <a href="#" class="filter-pill">WordPress</a>
+    <div style="margin-left: auto; font-size: 13px; color: #58585d;">12 results</div>
+  </div>
+</section>
+
+<!-- Course grid -->
+<section style="max-width: 1200px; margin: 0 auto; padding: 24px 24px 80px;">
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+
+    <!-- Card 1 - Foundation -->
+    <a href="#" style="text-decoration: none; color: inherit;">
+      <div class="course-card">
+        <div class="course-thumb" style="background: #d0eede;">
+          <div style="width: 64px; height: 64px; background: #16ab59; border-radius: 50%;"></div>
+        </div>
+        <div style="padding: 20px;">
+          <div style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;" class="tag-foundation">Foundation</div>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px; line-height: 1.25;">Foundation HTML, CSS + JavaScript</h3>
+          <p style="font-size: 13px; color: #58585d; margin-bottom: 16px; line-height: 1.5;">A complete guide to front-end web development for total beginners.</p>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 16px; font-weight: 700;">$299</span>
+            <span style="font-size: 12px; color: #58585d;">12 weeks</span>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 2 -->
+    <a href="#" style="text-decoration: none; color: inherit;">
+      <div class="course-card">
+        <div class="course-thumb" style="background: #ffbac4;">
+          <div class="shape-pentagon" style="width: 64px; height: 64px; background: #ff4141; clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);"></div>
+        </div>
+        <div style="padding: 20px;">
+          <div style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;" class="tag-course">Course</div>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px; line-height: 1.25;">UX + Web Design</h3>
+          <p style="font-size: 13px; color: #58585d; margin-bottom: 16px; line-height: 1.5;">Design beautiful, usable websites that people love to use.</p>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 16px; font-weight: 700;">$349</span>
+            <span style="font-size: 12px; color: #58585d;">10 weeks</span>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 3 -->
+    <a href="#" style="text-decoration: none; color: inherit;">
+      <div class="course-card">
+        <div class="course-thumb" style="background: #cdf1fe;">
+          <div style="width: 0; height: 0; border-left: 36px solid transparent; border-right: 36px solid transparent; border-bottom: 64px solid #91d8ec;"></div>
+        </div>
+        <div style="padding: 20px;">
+          <div style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;" class="tag-course">Course</div>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px; line-height: 1.25;">JavaScript + APIs</h3>
+          <p style="font-size: 13px; color: #58585d; margin-bottom: 16px; line-height: 1.5;">Connect to real APIs and build interactive web apps with JavaScript.</p>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 16px; font-weight: 700;">$329</span>
+            <span style="font-size: 12px; color: #58585d;">8 weeks</span>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 4 -->
+    <a href="#" style="text-decoration: none; color: inherit;">
+      <div class="course-card">
+        <div class="course-thumb" style="background: #fff099;">
+          <div style="width: 64px; height: 64px; background: #ffda00; border-radius: 12px; transform: rotate(45deg);"></div>
+        </div>
+        <div style="padding: 20px;">
+          <div style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;" class="tag-course">Course</div>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px; line-height: 1.25;">WordPress Development</h3>
+          <p style="font-size: 13px; color: #58585d; margin-bottom: 16px; line-height: 1.5;">Build custom WordPress themes and plugins from scratch.</p>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 16px; font-weight: 700;">$299</span>
+            <span style="font-size: 12px; color: #58585d;">8 weeks</span>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 5 -->
+    <a href="#" style="text-decoration: none; color: inherit;">
+      <div class="course-card">
+        <div class="course-thumb" style="background: #dedefb;">
+          <div style="width: 64px; height: 64px; background: #2727e6; border-radius: 50%;"></div>
+        </div>
+        <div style="padding: 20px;">
+          <div style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;" class="tag-course">Course</div>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px; line-height: 1.25;">React for Designers</h3>
+          <p style="font-size: 13px; color: #58585d; margin-bottom: 16px; line-height: 1.5;">Learn React with a designer's eye for components and interactions.</p>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 16px; font-weight: 700;">$349</span>
+            <span style="font-size: 12px; color: #58585d;">10 weeks</span>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 6 -->
+    <a href="#" style="text-decoration: none; color: inherit;">
+      <div class="course-card">
+        <div class="course-thumb" style="background: #d0eede;">
+          <div style="width: 64px; height: 64px; background: #16ab59; clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);"></div>
+        </div>
+        <div style="padding: 20px;">
+          <div style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;" class="tag-workshop">Workshop</div>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px; line-height: 1.25;">CSS Grid in a Weekend</h3>
+          <p style="font-size: 13px; color: #58585d; margin-bottom: 16px; line-height: 1.5;">A short, focused workshop on building layouts with CSS Grid.</p>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 16px; font-weight: 700;">$49</span>
+            <span style="font-size: 12px; color: #58585d;">2 days</span>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 7 -->
+    <a href="#" style="text-decoration: none; color: inherit;">
+      <div class="course-card">
+        <div class="course-thumb" style="background: #ffbac4;">
+          <svg width="64" height="64" viewBox="0 0 120 120" fill="#ff4141"><path d="M60,10 L65,45 L80,25 L72,58 L100,48 L78,68 L105,78 L76,82 L88,108 L62,90 L60,115 L58,90 L32,108 L44,82 L15,78 L42,68 L20,48 L48,58 L40,25 L55,45 Z"/></svg>
+        </div>
+        <div style="padding: 20px;">
+          <div style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;" class="tag-workshop">Workshop</div>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px; line-height: 1.25;">Animation with GSAP</h3>
+          <p style="font-size: 13px; color: #58585d; margin-bottom: 16px; line-height: 1.5;">Bring your sites to life with delightful, performant animations.</p>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 16px; font-weight: 700;">$59</span>
+            <span style="font-size: 12px; color: #58585d;">3 days</span>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 8 -->
+    <a href="#" style="text-decoration: none; color: inherit;">
+      <div class="course-card">
+        <div class="course-thumb" style="background: #cdf1fe;">
+          <div style="width: 64px; height: 64px; background: #91d8ec; border-radius: 16px;"></div>
+        </div>
+        <div style="padding: 20px;">
+          <div style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;" class="tag-course">Course</div>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px; line-height: 1.25;">Shopify Theme Design</h3>
+          <p style="font-size: 13px; color: #58585d; margin-bottom: 16px; line-height: 1.5;">Design and code custom Shopify themes for real-world stores.</p>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 16px; font-weight: 700;">$279</span>
+            <span style="font-size: 12px; color: #58585d;">6 weeks</span>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 9 - Free -->
+    <a href="#" style="text-decoration: none; color: inherit;">
+      <div class="course-card">
+        <div class="course-thumb" style="background: #fff099;">
+          <div style="width: 64px; height: 64px; background: #ff7715; border-radius: 50%;"></div>
+        </div>
+        <div style="padding: 20px;">
+          <div style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;" class="tag-free">Free</div>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px; line-height: 1.25;">Intro to Web Design</h3>
+          <p style="font-size: 13px; color: #58585d; margin-bottom: 16px; line-height: 1.5;">Get a taste of the Superhi approach with this free starter course.</p>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 16px; font-weight: 700;">Free</span>
+            <span style="font-size: 12px; color: #58585d;">1 week</span>
+          </div>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- Load more -->
+  <div style="display: flex; justify-content: center; margin-top: 48px;">
+    <a href="#" class="btn-outline">Load more courses →</a>
+  </div>
+</section>
+
+<!-- Large Green CTA Section -->
+<section style="background: #16ab59; margin: 0 24px 24px; border-radius: 20px; padding: 80px 48px; position: relative; overflow: hidden; min-height: 320px;">
+  <div style="position: absolute; right: -40px; bottom: -40px; width: 200px; height: 200px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+  <div style="position: absolute; right: 80px; top: -60px; width: 160px; height: 160px; background: rgba(255,255,255,0.08); border-radius: 50%;"></div>
+
+  <h2 style="font-size: 42px; font-weight: 700; color: white; letter-spacing: -0.02em; max-width: 500px; line-height: 1.1;">Not sure where to start?</h2>
+  <p style="color: rgba(255,255,255,0.85); font-size: 16px; margin: 16px 0 32px; max-width: 400px;">Try our free intro course and see if Superhi is right for you.</p>
+  <a href="#" class="btn-white">Try our free course →</a>
+</section>
+
+<!-- Footer -->
+<footer style="padding: 60px 24px 40px; max-width: 1200px; margin: 0 auto; border-top: 1.5px solid #ebebeb;">
+  <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px;">
+    <div>
+      <div style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px;">superhi</div>
+    </div>
+    <div>
+      <h4 style="font-size: 12px; font-weight: 600; color: #b7b7b9; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px;">Courses</h4>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+        <li><a href="catalog.html" style="font-size: 13px; color: #111118; text-decoration: none;">Catalog</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Workshops</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Free course</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Student work</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Projects</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="font-size: 12px; font-weight: 600; color: #b7b7b9; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px;">Company</h4>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">About</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Team</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Blog</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Press</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Student Management</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Code of conduct</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="font-size: 12px; font-weight: 600; color: #b7b7b9; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px;">Support</h4>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Contact</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">FAQs</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Accessibility</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Privacy policy</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Terms</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="font-size: 12px; font-weight: 600; color: #b7b7b9; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px;">Community</h4>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Newsletter</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Discord</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Instagram</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Twitter / X</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="border-top: 1.5px solid #ebebeb; padding-top: 24px; display: flex; justify-content: space-between; align-items: center;">
+    <p style="font-size: 12px; color: #b7b7b9;">© 2024 Superhi</p>
+    <div style="display: flex; gap: 16px;">
+      <a href="#" style="color: #111118; text-decoration: none;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+      </a>
+      <a href="#" style="color: #111118; text-decoration: none;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- SalesCloser Widget - Floating Button -->
+<script src="https://app.staging2.salescloser.ai/js/scwa-widget.js"
+  data-agent-uuid="0769ae1f-8107-4f58-bfd4-2ef5241be7f2"
+  data-widget-position="bottom-right"
+  async></script>
+
+</body>
+</html>

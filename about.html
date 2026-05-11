@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About – Superhi</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  :root {
+    --color-blue-50: #2727e6;
+    --color-blue-20: #dedefb;
+    --color-green-50: #16ab59;
+    --color-green-30: #d0eede;
+    --color-warm-blue-50: #91d8ec;
+    --color-warm-blue-30: #cdf1fe;
+    --color-yellow-50: #ffda00;
+    --color-yellow-30: #fff099;
+    --color-red-50: #ff4141;
+    --color-orange-50: #ff7715;
+    --color-pink-50: #ffbac4;
+    --color-grey-90: #111118;
+    --color-grey-20: #ebebeb;
+    --color-grey-10: #f6f6f6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: #111118;
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+  }
+  .btn-primary {
+    background: #111118;
+    color: #fff;
+    border-radius: 100px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    border: 1.5px solid #111118;
+  }
+  .btn-outline {
+    background: transparent;
+    color: #111118;
+    border-radius: 100px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    border: 1.5px solid #111118;
+  }
+  .btn-white {
+    background: #fff;
+    color: #111118;
+    border-radius: 100px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+  }
+  .announcement-bar {
+    background: #2727e6;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    padding: 8px 16px;
+  }
+  .about-hero {
+    background: #eeeef8;
+  }
+  .value-card {
+    background: #fff;
+    border: 1.5px solid #ebebeb;
+    border-radius: 16px;
+    padding: 28px;
+  }
+  .team-card {
+    background: #fff;
+    border: 1.5px solid #ebebeb;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .team-thumb {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .stat-block {
+    background: #fff;
+    border: 1.5px solid #ebebeb;
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .wilson-avatar {
+    width: 32px;
+    height: 32px;
+    background: #2727e6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- Announcement bar -->
+<div class="announcement-bar">
+  We use essential cookies to make this site work. With your consent we may also use non-essential cookies to improve user experience.
+  <span style="margin-left: 12px; text-decoration: underline; cursor: pointer;">Accept cookies &amp; close</span>
+</div>
+
+<!-- Navigation -->
+<nav style="position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(4px); border-bottom: 1.5px solid #ebebeb;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 60px;">
+    <div style="display: flex; align-items: center; gap: 32px;">
+      <a href="index.html" style="font-size: 18px; font-weight: 700; text-decoration: none; color: #111118; letter-spacing: -0.02em;">superhi</a>
+      <div style="display: flex; gap: 24px;">
+        <a href="catalog.html" style="font-size: 14px; color: #111118; text-decoration: none; font-weight: 500;">Catalog</a>
+        <a href="about.html" style="font-size: 14px; color: #111118; text-decoration: none; font-weight: 600;">About</a>
+      </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <button style="background: none; border: none; cursor: pointer; padding: 4px; display: flex; align-items: center;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111118" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      </button>
+      <a href="#" class="btn-outline" style="padding: 8px 16px; font-size: 13px;">Sign in</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="about-hero" style="position: relative; overflow: hidden; padding: 80px 24px 80px; text-align: center;">
+  <!-- Decorative shapes -->
+  <div style="position: absolute; left: 60px; top: 60px; width: 100px; height: 100px; background: #ffda00; clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);"></div>
+  <div style="position: absolute; right: 80px; top: 40px;">
+    <div style="width: 0; height: 0; border-left: 45px solid transparent; border-right: 45px solid transparent; border-bottom: 80px solid #16ab59;"></div>
+  </div>
+  <div style="position: absolute; left: -40px; bottom: -40px; width: 140px; height: 140px; background: #2727e6; border-radius: 50%;"></div>
+  <div style="position: absolute; right: -30px; bottom: 40px; width: 100px; height: 100px; background: #ffbac4; border-radius: 50%;"></div>
+
+  <div style="display: inline-flex; align-items: center; gap: 6px; background: #2727e6; color: white; border-radius: 100px; padding: 6px 14px; font-size: 12px; margin-bottom: 24px;">
+    <div style="width: 20px; height: 20px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+      <span style="font-size: 10px;">😊</span>
+    </div>
+    <span>About us</span>
+  </div>
+
+  <h1 style="font-size: clamp(36px, 5vw, 64px); font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; max-width: 720px; margin: 0 auto 20px; color: #111118;">We help creative people<br>build technical careers</h1>
+  <p style="font-size: 16px; color: #58585d; max-width: 520px; margin: 0 auto; line-height: 1.5;">
+    Superhi is an online school for the creative web. Since 2016 we've taught 60,000+ people around the world to design and build their own ideas.
+  </p>
+</section>
+
+<!-- Story Section -->
+<section style="max-width: 900px; margin: 0 auto; padding: 80px 24px;">
+  <div style="font-size: 11px; font-weight: 600; color: #2727e6; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;">Our story</div>
+  <h2 style="font-size: 36px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 24px; line-height: 1.15;">Built by designers, for designers who want to code.</h2>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; font-size: 15px; color: #58585d; line-height: 1.7;">
+    <p>
+      Superhi started as a small Slack group of people teaching each other to code. Today it's a global community of creative makers learning everything from HTML and CSS to React, JavaScript, UX and beyond.
+    </p>
+    <p>
+      We believe technical skills shouldn't be locked behind dry textbooks or expensive bootcamps. Our courses are practical, friendly and made by people who actually use this stuff to do creative work every day.
+    </p>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section style="max-width: 1200px; margin: 0 auto; padding: 0 24px 80px;">
+  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+    <div class="stat-block">
+      <div style="font-size: 40px; font-weight: 700; letter-spacing: -0.02em; color: #2727e6;">60k+</div>
+      <p style="font-size: 13px; color: #58585d; margin-top: 4px;">Students worldwide</p>
+    </div>
+    <div class="stat-block">
+      <div style="font-size: 40px; font-weight: 700; letter-spacing: -0.02em; color: #16ab59;">120+</div>
+      <p style="font-size: 13px; color: #58585d; margin-top: 4px;">Countries reached</p>
+    </div>
+    <div class="stat-block">
+      <div style="font-size: 40px; font-weight: 700; letter-spacing: -0.02em; color: #ff7715;">40+</div>
+      <p style="font-size: 13px; color: #58585d; margin-top: 4px;">Courses &amp; workshops</p>
+    </div>
+    <div class="stat-block">
+      <div style="font-size: 40px; font-weight: 700; letter-spacing: -0.02em; color: #ff4141;">8</div>
+      <p style="font-size: 13px; color: #58585d; margin-top: 4px;">Years teaching</p>
+    </div>
+  </div>
+</section>
+
+<!-- Values Section -->
+<section style="max-width: 1200px; margin: 0 auto; padding: 0 24px 80px;">
+  <div style="text-align: center; margin-bottom: 48px;">
+    <div style="font-size: 11px; font-weight: 600; color: #2727e6; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;">What we believe</div>
+    <h2 style="font-size: 36px; font-weight: 700; letter-spacing: -0.02em;">Our values</h2>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+    <div class="value-card">
+      <div style="width: 48px; height: 48px; background: #ffda00; border-radius: 12px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center;">
+        <div style="width: 0; height: 0; border-left: 12px solid transparent; border-right: 12px solid transparent; border-bottom: 20px solid #111118;"></div>
+      </div>
+      <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Practical, not theoretical</h3>
+      <p style="font-size: 14px; color: #58585d; line-height: 1.6;">Every course is built around real projects. You'll finish with something you've actually made.</p>
+    </div>
+
+    <div class="value-card">
+      <div style="width: 48px; height: 48px; background: #ffbac4; border-radius: 12px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center;">
+        <div style="width: 24px; height: 24px; background: #ff4141; border-radius: 50%;"></div>
+      </div>
+      <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Friendly &amp; welcoming</h3>
+      <p style="font-size: 14px; color: #58585d; line-height: 1.6;">Tech doesn't have to be cold. Our community is warm, supportive and never judgmental about questions.</p>
+    </div>
+
+    <div class="value-card">
+      <div style="width: 48px; height: 48px; background: #d0eede; border-radius: 12px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center;">
+        <div style="width: 24px; height: 24px; background: #16ab59; clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);"></div>
+      </div>
+      <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Made by makers</h3>
+      <p style="font-size: 14px; color: #58585d; line-height: 1.6;">Our teachers are working designers and developers. They teach what they actually do, not just theory.</p>
+    </div>
+
+    <div class="value-card">
+      <div style="width: 48px; height: 48px; background: #cdf1fe; border-radius: 12px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center;">
+        <div style="width: 24px; height: 24px; background: #91d8ec; border-radius: 6px; transform: rotate(45deg);"></div>
+      </div>
+      <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Learn at your pace</h3>
+      <p style="font-size: 14px; color: #58585d; line-height: 1.6;">No rigid deadlines. Take your courses when life allows — they're yours for as long as you need them.</p>
+    </div>
+
+    <div class="value-card">
+      <div style="width: 48px; height: 48px; background: #dedefb; border-radius: 12px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center;">
+        <div style="width: 24px; height: 24px; background: #2727e6; border-radius: 50%;"></div>
+      </div>
+      <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Career-focused</h3>
+      <p style="font-size: 14px; color: #58585d; line-height: 1.6;">We don't just teach skills — we teach you how to use them to build a creative career on your terms.</p>
+    </div>
+
+    <div class="value-card">
+      <div style="width: 48px; height: 48px; background: #fff099; border-radius: 12px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center;">
+        <div style="width: 24px; height: 24px; background: #ff7715; border-radius: 4px;"></div>
+      </div>
+      <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Honest pricing</h3>
+      <p style="font-size: 14px; color: #58585d; line-height: 1.6;">No upsells, no surprise fees. One fair price, lifetime access and free updates included.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Team Section -->
+<section style="background: #eeeef8; padding: 80px 24px;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div style="text-align: center; margin-bottom: 48px;">
+      <div style="font-size: 11px; font-weight: 600; color: #2727e6; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;">The crew</div>
+      <h2 style="font-size: 36px; font-weight: 700; letter-spacing: -0.02em;">Meet the team</h2>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+      <div class="team-card">
+        <div class="team-thumb" style="background: #ffbac4;">
+          <div style="width: 80px; height: 80px; background: #ff4141; border-radius: 50%;"></div>
+        </div>
+        <div style="padding: 20px;">
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 4px;">Rik Lomas</h3>
+          <p style="font-size: 13px; color: #58585d;">Founder &amp; CEO</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-thumb" style="background: #d0eede;">
+          <div style="width: 80px; height: 80px; background: #16ab59; clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);"></div>
+        </div>
+        <div style="padding: 20px;">
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 4px;">Carolina Sosa</h3>
+          <p style="font-size: 13px; color: #58585d;">Head of Curriculum</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-thumb" style="background: #cdf1fe;">
+          <div style="width: 0; height: 0; border-left: 40px solid transparent; border-right: 40px solid transparent; border-bottom: 70px solid #91d8ec;"></div>
+        </div>
+        <div style="padding: 20px;">
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 4px;">James Chen</h3>
+          <p style="font-size: 13px; color: #58585d;">Lead Instructor</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-thumb" style="background: #fff099;">
+          <div style="width: 80px; height: 80px; background: #ffda00; border-radius: 16px; transform: rotate(45deg);"></div>
+        </div>
+        <div style="padding: 20px;">
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 4px;">Maya Patel</h3>
+          <p style="font-size: 13px; color: #58585d;">Community Lead</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Wilson / mission card -->
+<section style="max-width: 1200px; margin: 0 auto; padding: 80px 24px;">
+  <div style="background: #91d8ec; border-radius: 16px; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; min-height: 200px;">
+    <div style="padding: 40px; display: flex; flex-direction: column; justify-content: space-between;">
+      <div>
+        <div class="wilson-avatar" style="margin-bottom: 16px;"></div>
+        <p style="font-size: 15px; line-height: 1.6; color: #111118;">Hi! I'm Wilson, the friendly robot mascot of Superhi. I'm here to help you navigate our courses, answer questions, and cheer you on as you build your skills. Don't be shy — say hi anytime!</p>
+      </div>
+      <div style="margin-top: 20px;">
+        <a href="#" class="btn-primary" style="font-size: 13px; padding: 10px 18px;">Say hi to Wilson →</a>
+      </div>
+    </div>
+    <div style="background: rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; padding: 24px;">
+      <div style="width: 120px; height: 120px; background: #2727e6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 56px;">😊</div>
+    </div>
+  </div>
+</section>
+
+<!-- Large Green CTA Section -->
+<section style="background: #16ab59; margin: 0 24px 24px; border-radius: 20px; padding: 80px 48px; position: relative; overflow: hidden; min-height: 320px;">
+  <div style="position: absolute; right: -40px; bottom: -40px; width: 200px; height: 200px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+  <div style="position: absolute; right: 80px; top: -60px; width: 160px; height: 160px; background: rgba(255,255,255,0.08); border-radius: 50%;"></div>
+
+  <h2 style="font-size: 42px; font-weight: 700; color: white; letter-spacing: -0.02em; max-width: 500px; line-height: 1.1;">Ready to join us?</h2>
+  <p style="color: rgba(255,255,255,0.85); font-size: 16px; margin: 16px 0 32px; max-width: 400px;">Pick a course, dive in, and start building. We'll be right here cheering you on.</p>
+  <a href="catalog.html" class="btn-white">See our catalog →</a>
+</section>
+
+<!-- Footer -->
+<footer style="padding: 60px 24px 40px; max-width: 1200px; margin: 0 auto; border-top: 1.5px solid #ebebeb;">
+  <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px;">
+    <div>
+      <div style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px;">superhi</div>
+    </div>
+    <div>
+      <h4 style="font-size: 12px; font-weight: 600; color: #b7b7b9; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px;">Courses</h4>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+        <li><a href="catalog.html" style="font-size: 13px; color: #111118; text-decoration: none;">Catalog</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Workshops</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Free course</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Student work</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Projects</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="font-size: 12px; font-weight: 600; color: #b7b7b9; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px;">Company</h4>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+        <li><a href="about.html" style="font-size: 13px; color: #111118; text-decoration: none;">About</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Team</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Blog</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Press</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Student Management</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Code of conduct</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="font-size: 12px; font-weight: 600; color: #b7b7b9; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px;">Support</h4>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Contact</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">FAQs</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Accessibility</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Privacy policy</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Terms</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="font-size: 12px; font-weight: 600; color: #b7b7b9; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px;">Community</h4>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Newsletter</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Discord</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Instagram</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Twitter / X</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="border-top: 1.5px solid #ebebeb; padding-top: 24px; display: flex; justify-content: space-between; align-items: center;">
+    <p style="font-size: 12px; color: #b7b7b9;">© 2024 Superhi</p>
+    <div style="display: flex; gap: 16px;">
+      <a href="#" style="color: #111118; text-decoration: none;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+      </a>
+      <a href="#" style="color: #111118; text-decoration: none;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- SalesCloser Widget - Floating Button -->
+<script src="https://app.staging2.salescloser.ai/js/scwa-widget.js"
+  data-agent-uuid="0769ae1f-8107-4f58-bfd4-2ef5241be7f2"
+  data-widget-position="bottom-right"
+  async></script>
+
+</body>
+</html>

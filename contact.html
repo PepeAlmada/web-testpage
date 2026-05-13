@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact – Webtest</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  :root {
+    --color-blue-50: #2727e6;
+    --color-blue-20: #dedefb;
+    --color-green-50: #16ab59;
+    --color-green-30: #d0eede;
+    --color-warm-blue-50: #91d8ec;
+    --color-warm-blue-30: #cdf1fe;
+    --color-yellow-50: #ffda00;
+    --color-yellow-30: #fff099;
+    --color-red-50: #ff4141;
+    --color-orange-50: #ff7715;
+    --color-pink-50: #ffbac4;
+    --color-grey-90: #111118;
+    --color-grey-20: #ebebeb;
+    --color-grey-10: #f6f6f6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: #111118;
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+  }
+  .btn-primary {
+    background: #111118;
+    color: #fff;
+    border-radius: 100px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    border: 1.5px solid #111118;
+  }
+  .btn-outline {
+    background: transparent;
+    color: #111118;
+    border-radius: 100px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    border: 1.5px solid #111118;
+  }
+  .btn-white {
+    background: #fff;
+    color: #111118;
+    border-radius: 100px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+  }
+  .announcement-bar {
+    background: #2727e6;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    padding: 8px 16px;
+  }
+  .contact-hero {
+    background: #eeeef8;
+  }
+  .contact-card {
+    background: #fff;
+    border: 1.5px solid #ebebeb;
+    border-radius: 16px;
+    padding: 28px;
+  }
+  .office-card {
+    background: #fff;
+    border: 1.5px solid #ebebeb;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .office-thumb {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .form-field {
+    width: 100%;
+    background: #fff;
+    border: 1.5px solid #ebebeb;
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 14px;
+    color: #111118;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .form-field:focus {
+    border-color: #2727e6;
+  }
+  .form-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #58585d;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .wilson-avatar {
+    width: 32px;
+    height: 32px;
+    background: #2727e6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- Announcement bar -->
+<div class="announcement-bar">
+  We use essential cookies to make this site work. With your consent we may also use non-essential cookies to improve user experience.
+  <span style="margin-left: 12px; text-decoration: underline; cursor: pointer;">Accept cookies &amp; close</span>
+</div>
+
+<!-- Navigation -->
+<nav style="position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(4px); border-bottom: 1.5px solid #ebebeb;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 60px;">
+    <div style="display: flex; align-items: center; gap: 32px;">
+      <a href="index.html" style="font-size: 18px; font-weight: 700; text-decoration: none; color: #111118; letter-spacing: -0.02em;">webtest</a>
+      <div style="display: flex; gap: 24px;">
+        <a href="catalog.html" style="font-size: 14px; color: #111118; text-decoration: none; font-weight: 500;">Catalog</a>
+        <a href="about.html" style="font-size: 14px; color: #111118; text-decoration: none; font-weight: 500;">About</a>
+        <a href="contact.html" style="font-size: 14px; color: #111118; text-decoration: none; font-weight: 600;">Contact</a>
+      </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <button style="background: none; border: none; cursor: pointer; padding: 4px; display: flex; align-items: center;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111118" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      </button>
+      <a href="#" class="btn-outline" style="padding: 8px 16px; font-size: 13px;">Sign in</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="contact-hero" style="position: relative; overflow: hidden; padding: 80px 24px 80px; text-align: center;">
+  <!-- Decorative shapes -->
+  <div style="position: absolute; left: 60px; top: 60px; width: 100px; height: 100px; background: #ff7715; border-radius: 50%;"></div>
+  <div style="position: absolute; right: 80px; top: 40px; width: 90px; height: 90px; background: #ffda00; clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);"></div>
+  <div style="position: absolute; left: -40px; bottom: -40px; width: 140px; height: 140px; background: #16ab59; border-radius: 50%;"></div>
+  <div style="position: absolute; right: -30px; bottom: 40px;">
+    <div style="width: 0; height: 0; border-left: 55px solid transparent; border-right: 55px solid transparent; border-bottom: 95px solid #2727e6;"></div>
+  </div>
+
+  <div style="display: inline-flex; align-items: center; gap: 6px; background: #2727e6; color: white; border-radius: 100px; padding: 6px 14px; font-size: 12px; margin-bottom: 24px;">
+    <div style="width: 20px; height: 20px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+      <span style="font-size: 10px;">💬</span>
+    </div>
+    <span>Contact us</span>
+  </div>
+
+  <h1 style="font-size: clamp(36px, 5vw, 64px); font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; max-width: 720px; margin: 0 auto 20px; color: #111118;">Let's start a<br>conversation</h1>
+  <p style="font-size: 16px; color: #58585d; max-width: 520px; margin: 0 auto; line-height: 1.5;">
+    Questions about a course? Curious about workshops? Just want to say hi? We'd love to hear from you — pick whichever way feels easiest.
+  </p>
+</section>
+
+<!-- Contact methods -->
+<section style="max-width: 1200px; margin: 0 auto; padding: 80px 24px;">
+  <div style="text-align: center; margin-bottom: 48px;">
+    <div style="font-size: 11px; font-weight: 600; color: #2727e6; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;">Reach out</div>
+    <h2 style="font-size: 36px; font-weight: 700; letter-spacing: -0.02em;">Ways to get in touch</h2>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+    <div class="contact-card">
+      <div style="width: 48px; height: 48px; background: #dedefb; border-radius: 12px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2727e6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Email us</h3>
+      <p style="font-size: 14px; color: #58585d; line-height: 1.6; margin-bottom: 16px;">For course questions, billing or anything that needs a written reply.</p>
+      <a href="mailto:hello@webtest.example" style="font-size: 14px; font-weight: 600; color: #2727e6; text-decoration: none;">hello@webtest.example →</a>
+    </div>
+
+    <div class="contact-card">
+      <div style="width: 48px; height: 48px; background: #d0eede; border-radius: 12px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16ab59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Call or text</h3>
+      <p style="font-size: 14px; color: #58585d; line-height: 1.6; margin-bottom: 16px;">Speak to a real human on weekdays, 9am–6pm GMT.</p>
+      <a href="tel:+442045771800" style="font-size: 14px; font-weight: 600; color: #16ab59; text-decoration: none;">+44 20 4577 1800 →</a>
+    </div>
+
+    <div class="contact-card">
+      <div style="width: 48px; height: 48px; background: #fff099; border-radius: 12px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff7715" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      </div>
+      <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Live chat</h3>
+      <p style="font-size: 14px; color: #58585d; line-height: 1.6; margin-bottom: 16px;">Wilson is online right now and happy to help with quick questions.</p>
+      <a href="#chat" style="font-size: 14px; font-weight: 600; color: #ff7715; text-decoration: none;">Start a chat →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Inline widget section -->
+<section id="chat" style="background: #eeeef8; padding: 80px 24px;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div style="text-align: center; margin-bottom: 48px;">
+      <div style="font-size: 11px; font-weight: 600; color: #2727e6; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;">Chat with Wilson</div>
+      <h2 style="font-size: 36px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px;">Talk to us right here</h2>
+      <p style="font-size: 16px; color: #58585d; max-width: 520px; margin: 0 auto; line-height: 1.5;">
+        Skip the form. Ask anything about courses, pricing or your account and Wilson will get you sorted.
+      </p>
+    </div>
+
+    <div style="display: flex; justify-content: center;">
+      <!-- SalesCloser Widget - Inline Embed -->
+      <script src="https://app.salescloser.ai/js/sc-embed-widget.js" async></script>
+      <div data-sc-embed-agent="81db1045-b7ad-4e88-83da-7f33c9fa9edc"
+           data-style="inline"
+           data-width="900px"
+           data-height="600px"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact form section -->
+<section style="max-width: 1000px; margin: 0 auto; padding: 80px 24px;">
+  <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; align-items: start;">
+    <div>
+      <div style="font-size: 11px; font-weight: 600; color: #2727e6; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;">Send a message</div>
+      <h2 style="font-size: 36px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 16px;">Prefer to write?</h2>
+      <p style="font-size: 15px; color: #58585d; line-height: 1.7; margin-bottom: 24px;">
+        Fill out the form and we'll get back to you within one working day. For urgent course access issues, please use live chat instead.
+      </p>
+      <div style="display: flex; align-items: center; gap: 12px; padding: 16px; background: #f6f6f6; border-radius: 12px;">
+        <div class="wilson-avatar"></div>
+        <p style="font-size: 13px; color: #58585d; line-height: 1.5;">Wilson reads every message and routes it to the right person on the crew.</p>
+      </div>
+    </div>
+
+    <form style="display: flex; flex-direction: column; gap: 16px;" onsubmit="event.preventDefault();">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+        <div>
+          <label for="first-name" class="form-label">First name</label>
+          <input id="first-name" type="text" class="form-field" placeholder="Ada">
+        </div>
+        <div>
+          <label for="last-name" class="form-label">Last name</label>
+          <input id="last-name" type="text" class="form-field" placeholder="Lovelace">
+        </div>
+      </div>
+      <div>
+        <label for="email" class="form-label">Email</label>
+        <input id="email" type="email" class="form-field" placeholder="you@example.com">
+      </div>
+      <div>
+        <label for="topic" class="form-label">What's it about?</label>
+        <select id="topic" class="form-field" style="appearance: none; background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23111118%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><polyline points=%226 9 12 15 18 9%22/></svg>'); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px;">
+          <option>Course question</option>
+          <option>Billing &amp; refunds</option>
+          <option>Workshops</option>
+          <option>Press &amp; partnerships</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div>
+        <label for="message" class="form-label">Message</label>
+        <textarea id="message" rows="5" class="form-field" placeholder="Tell us what's on your mind..." style="resize: vertical; min-height: 140px;"></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="align-self: flex-start; cursor: pointer;">Send message →</button>
+    </form>
+  </div>
+</section>
+
+<!-- Offices Section -->
+<section style="background: #eeeef8; padding: 80px 24px;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div style="text-align: center; margin-bottom: 48px;">
+      <div style="font-size: 11px; font-weight: 600; color: #2727e6; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;">Where we are</div>
+      <h2 style="font-size: 36px; font-weight: 700; letter-spacing: -0.02em;">Our studios</h2>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+      <div class="office-card">
+        <div class="office-thumb" style="background: #ffbac4;">
+          <div style="width: 70px; height: 70px; background: #ff4141; border-radius: 50%;"></div>
+        </div>
+        <div style="padding: 20px;">
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 6px;">London</h3>
+          <p style="font-size: 13px; color: #58585d; line-height: 1.6;">12 Hoxton Square<br>London N1 6NT, UK</p>
+        </div>
+      </div>
+      <div class="office-card">
+        <div class="office-thumb" style="background: #cdf1fe;">
+          <div style="width: 70px; height: 70px; background: #91d8ec; border-radius: 14px; transform: rotate(45deg);"></div>
+        </div>
+        <div style="padding: 20px;">
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 6px;">New York</h3>
+          <p style="font-size: 13px; color: #58585d; line-height: 1.6;">88 Greenpoint Avenue<br>Brooklyn, NY 11222</p>
+        </div>
+      </div>
+      <div class="office-card">
+        <div class="office-thumb" style="background: #fff099;">
+          <div style="width: 70px; height: 70px; background: #ffda00; clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);"></div>
+        </div>
+        <div style="padding: 20px;">
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 6px;">Lisbon</h3>
+          <p style="font-size: 13px; color: #58585d; line-height: 1.6;">Rua da Boavista 240<br>1200-068 Lisboa</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Hours & response card -->
+<section style="max-width: 1200px; margin: 0 auto; padding: 80px 24px;">
+  <div style="background: #91d8ec; border-radius: 16px; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; min-height: 200px;">
+    <div style="padding: 40px; display: flex; flex-direction: column; justify-content: space-between;">
+      <div>
+        <div class="wilson-avatar" style="margin-bottom: 16px;"></div>
+        <h3 style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px;">When we're around</h3>
+        <p style="font-size: 15px; line-height: 1.6; color: #111118;">Our crew works Monday to Friday, 9am–6pm GMT. We aim to reply to every email within one working day and most live chats inside ten minutes.</p>
+      </div>
+      <div style="margin-top: 20px;">
+        <a href="#chat" class="btn-primary" style="font-size: 13px; padding: 10px 18px;">Open chat now →</a>
+      </div>
+    </div>
+    <div style="background: rgba(255,255,255,0.3); padding: 32px; display: flex; flex-direction: column; justify-content: center; gap: 14px;">
+      <div style="display: flex; justify-content: space-between; font-size: 14px;">
+        <span style="color: #111118; font-weight: 600;">Monday – Friday</span>
+        <span style="color: #111118;">9:00 – 18:00 GMT</span>
+      </div>
+      <div style="height: 1px; background: rgba(17,17,24,0.15);"></div>
+      <div style="display: flex; justify-content: space-between; font-size: 14px;">
+        <span style="color: #111118; font-weight: 600;">Saturday</span>
+        <span style="color: #111118;">Wilson only</span>
+      </div>
+      <div style="height: 1px; background: rgba(17,17,24,0.15);"></div>
+      <div style="display: flex; justify-content: space-between; font-size: 14px;">
+        <span style="color: #111118; font-weight: 600;">Sunday</span>
+        <span style="color: #111118;">Closed</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Large Green CTA Section -->
+<section style="background: #16ab59; margin: 0 24px 24px; border-radius: 20px; padding: 80px 48px; position: relative; overflow: hidden; min-height: 320px;">
+  <div style="position: absolute; right: -40px; bottom: -40px; width: 200px; height: 200px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+  <div style="position: absolute; right: 80px; top: -60px; width: 160px; height: 160px; background: rgba(255,255,255,0.08); border-radius: 50%;"></div>
+
+  <h2 style="font-size: 42px; font-weight: 700; color: white; letter-spacing: -0.02em; max-width: 500px; line-height: 1.1;">Not sure where to start?</h2>
+  <p style="color: rgba(255,255,255,0.85); font-size: 16px; margin: 16px 0 32px; max-width: 400px;">Browse the catalog — or ask Wilson and we'll point you at the right course.</p>
+  <a href="catalog.html" class="btn-white">See our catalog →</a>
+</section>
+
+<!-- Footer -->
+<footer style="padding: 60px 24px 40px; max-width: 1200px; margin: 0 auto; border-top: 1.5px solid #ebebeb;">
+  <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px;">
+    <div>
+      <div style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px;">webtest</div>
+    </div>
+    <div>
+      <h4 style="font-size: 12px; font-weight: 600; color: #b7b7b9; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px;">Courses</h4>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+        <li><a href="catalog.html" style="font-size: 13px; color: #111118; text-decoration: none;">Catalog</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Workshops</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Free course</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Student work</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Projects</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="font-size: 12px; font-weight: 600; color: #b7b7b9; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px;">Company</h4>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+        <li><a href="about.html" style="font-size: 13px; color: #111118; text-decoration: none;">About</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Team</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Blog</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Press</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Student Management</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Code of conduct</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="font-size: 12px; font-weight: 600; color: #b7b7b9; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px;">Support</h4>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+        <li><a href="contact.html" style="font-size: 13px; color: #111118; text-decoration: none;">Contact</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">FAQs</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Accessibility</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Privacy policy</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Terms</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="font-size: 12px; font-weight: 600; color: #b7b7b9; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px;">Community</h4>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Newsletter</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Discord</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Instagram</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">Twitter / X</a></li>
+        <li><a href="#" style="font-size: 13px; color: #111118; text-decoration: none;">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="border-top: 1.5px solid #ebebeb; padding-top: 24px; display: flex; justify-content: space-between; align-items: center;">
+    <p style="font-size: 12px; color: #b7b7b9;">© 2024 Webtest</p>
+    <div style="display: flex; gap: 16px;">
+      <a href="#" style="color: #111118; text-decoration: none;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+      </a>
+      <a href="#" style="color: #111118; text-decoration: none;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- SalesCloser Widget - Floating Button -->
+<script src="https://app.salescloser.ai/js/scwa-widget.js"
+  data-agent-uuid="81db1045-b7ad-4e88-83da-7f33c9fa9edc"
+  data-widget-position="bottom-right"
+  async></script>
+
+</body>
+</html>

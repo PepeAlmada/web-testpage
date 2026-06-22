@@ -170,6 +170,12 @@
   </div>
 </nav>
 
+<main>
+<!-- TESTER NOTE (data-sc-private) -->
+<div data-sc-private style="background:#fff7d6;border:1px dashed #d4a72c;border-radius:10px;padding:12px 16px;margin:16px auto 0;max-width:1000px;font-size:13px;color:#7a5c00;line-height:1.5;">
+  <strong>🧪 Page-awareness test — form fields are never captured.</strong> The form below is pre-filled with sentinel values (a private email and a "SECRET-12345" membership ID typed into the message box). The loader strips all <code>input</code>/<code>textarea</code>/<code>select</code> nodes before reading text, so none of these typed values should reach the agent. Ask <em>"what's my membership ID?"</em> — it must not know.
+</div>
+
 <!-- Hero -->
 <section class="contact-hero" style="position: relative; overflow: hidden; padding: 80px 24px 80px; text-align: center;">
   <!-- Decorative shapes -->
@@ -267,16 +273,16 @@
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
         <div>
           <label for="first-name" class="form-label">First name</label>
-          <input id="first-name" type="text" class="form-field" placeholder="Ada">
+          <input id="first-name" type="text" class="form-field" placeholder="Ada" value="Ada">
         </div>
         <div>
           <label for="last-name" class="form-label">Last name</label>
-          <input id="last-name" type="text" class="form-field" placeholder="Lovelace">
+          <input id="last-name" type="text" class="form-field" placeholder="Lovelace" value="Lovelace">
         </div>
       </div>
       <div>
         <label for="email" class="form-label">Email</label>
-        <input id="email" type="email" class="form-field" placeholder="you@example.com">
+        <input id="email" type="email" class="form-field" placeholder="you@example.com" value="ada.secret@example.com">
       </div>
       <div>
         <label for="topic" class="form-label">What's it about?</label>
@@ -290,7 +296,7 @@
       </div>
       <div>
         <label for="message" class="form-label">Message</label>
-        <textarea id="message" rows="5" class="form-field" placeholder="Tell us what's on your mind..." style="resize: vertical; min-height: 140px;"></textarea>
+        <textarea id="message" rows="5" class="form-field" placeholder="Tell us what's on your mind..." style="resize: vertical; min-height: 140px;">Hi! My membership ID is SECRET-12345 and my account email is ada.secret@example.com. This text is typed into a form field and must never appear in the page-awareness snapshot.</textarea>
       </div>
       <button type="submit" class="btn-primary" style="align-self: flex-start; cursor: pointer;">Send message →</button>
     </form>
@@ -379,6 +385,8 @@
   <a href="catalog.html" class="btn-white">See our catalog →</a>
 </section>
 
+</main>
+
 <!-- Footer -->
 <footer style="padding: 60px 24px 40px; max-width: 1200px; margin: 0 auto; border-top: 1.5px solid #ebebeb;">
   <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px;">
@@ -465,5 +473,9 @@
   data-widget-position="bottom-right"
   async></script> -->
 
+<!-- SalesCloser Widget - Floating Button (Proxmox staging — Page Awareness test agent) -->
+<script src="https://03458c15.staging.proxmox.salescloser.ai/js/scwa-widget.js"
+  data-agent-uuid="f207ac40-4729-4e57-bd9e-726211d29c68"
+  async></script>
 </body>
 </html>

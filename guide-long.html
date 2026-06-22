@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The complete guide to learning front-end development — Webtest</title>
+<meta name="description" content="A long-form guide to learning HTML, CSS and JavaScript from scratch — habits, projects, and a realistic 2024 roadmap.">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; font-size:16px; color:#111118; background:#fff; -webkit-font-smoothing:antialiased; line-height:1.35; letter-spacing:-0.01em; }
+  .tester-note { background:#fff7d6; border:1px dashed #d4a72c; border-radius:10px; padding:12px 16px; margin:16px auto 8px; max-width:760px; font-size:13px; color:#7a5c00; line-height:1.5; }
+  article { max-width:760px; margin:0 auto; padding:40px 24px 64px; }
+  article h1 { font-size:38px; font-weight:700; letter-spacing:-0.02em; line-height:1.1; margin-bottom:16px; }
+  article h2 { font-size:24px; font-weight:700; letter-spacing:-0.02em; margin:32px 0 12px; }
+  article p { font-size:16px; color:#3a3a40; line-height:1.7; margin-bottom:16px; }
+  .sentinel { font-weight:700; color:#2727e6; }
+</style>
+</head>
+<body>
+
+<nav style="position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.92); backdrop-filter:blur(4px); border-bottom:1.5px solid #ebebeb;">
+  <div style="max-width:1200px; margin:0 auto; padding:0 24px; display:flex; align-items:center; justify-content:space-between; height:60px;">
+    <a href="index.html" style="font-size:18px; font-weight:700; text-decoration:none; color:#111118; letter-spacing:-0.02em;">webtest</a>
+    <a href="catalog.html" style="font-size:13px; color:#111118; text-decoration:none; font-weight:500;">Catalog</a>
+  </div>
+</nav>
+
+<!-- TESTER NOTE (data-sc-private, not counted toward the text budget). -->
+<div data-sc-private class="tester-note">
+  <strong>🧪 Page-awareness test — 8&nbsp;KB head+tail truncation.</strong>
+  The visible article text is well over 8000 characters, so the loader keeps the first ~70% and last ~30% with a
+  <code> […] </code> marker in between. Three sentinels are planted: <code>SENTINEL-ALPHA-TOP</code> (very top, survives),
+  <code>SENTINEL-CHARLIE-BOTTOM</code> (very bottom, survives), and <code>SENTINEL-BRAVO-MIDDLE</code> (the dropped middle, removed).
+  Ask the agent about each — it should know ALPHA and CHARLIE but <strong>not</strong> BRAVO.
+</div>
+
+<article>
+  <h1>The complete guide to learning front-end development</h1>
+  <p><span class="sentinel">SENTINEL-ALPHA-TOP.</span> Learning to build for the web is less about talent and more about stacking small, boring habits until they quietly turn into skill. This guide walks the whole road from a blank text file to a portfolio you are proud of, and it is deliberately long because the honest version of this story does not fit in a tweet. If you read nothing else, read this: pick one path, follow it to the end, and resist the urge to switch tools every week.</p>
+
+  <h2>Start with the grain of the web, not against it</h2>
+  <p>HTML is the skeleton, CSS is the skin, and JavaScript is the muscle. Beginners often rush past HTML because it looks too simple to matter, then spend months fighting layout bugs that were really structure bugs all along. Spend a real week on semantic markup: headings in order, lists that are actually lists, buttons that are actually buttons. Accessible structure is not a chore you bolt on at the end; it is the thing that makes everything after it easier, from styling to scripting to search ranking.</p>
+  <p>When you write markup that describes meaning instead of appearance, you get a surprising amount for free. Screen readers can navigate it, browsers can style it sensibly by default, and your future self can read it without a decoder ring. The web was designed to degrade gracefully, so a page built on solid HTML still works when a stylesheet fails to load or a script throws an error. Build with that grain and the platform helps you; build against it and you will spend your evenings patching leaks.</p>
+
+  <h2>CSS is a layout language, so learn layout first</h2>
+  <p>Most CSS frustration comes from skipping the box model and jumping straight to colours and fonts. Slow down. Understand how margin, border, padding and content stack up, how block and inline elements flow, and why a stray default margin can push your whole page sideways. Once the box model is muscle memory, learn Flexbox for one-dimensional layouts and Grid for two-dimensional ones. Between those two you can build almost any interface you will ever need without reaching for a framework.</p>
+  <p>Responsive design is not a separate topic you study later; it is just CSS that does not assume a fixed screen. Start mobile-first, use relative units, and let content reflow instead of pinning everything to pixels. Media queries are the obvious tool, but the deeper habit is designing components that simply do not care how wide their container is. When your buttons, cards and grids bend instead of breaking, "responsive" stops being a checklist and becomes the default way you think.</p>
+  <p>Custom properties — CSS variables — are the quiet upgrade that changes how you organise a stylesheet. Define your colours, spacing scale and font sizes once at the top, reference them everywhere, and suddenly a redesign is a five-line change instead of a find-and-replace nightmare. Pair that with a consistent naming convention and your CSS reads like a small design system rather than a pile of overrides fighting each other for the last word.</p>
+
+  <h2>JavaScript: small, then sturdy</h2>
+  <p>JavaScript is where beginners either fall in love or fall apart, and the difference is usually pace. Learn the boring fundamentals before the exciting frameworks: variables, types, functions, arrays, objects, and the way values flow through them. Write tiny programs that do one thing. Log things to the console relentlessly. Break code on purpose so you learn what the error messages actually mean, because reading a stack trace calmly is a senior skill you can start practising on day one.</p>
+  <p>The DOM is the bridge between your script and the page, and it rewards patience. Selecting elements, listening for events, and updating content in response is the core loop of almost every interactive feature you will ever write. Master that loop with plain JavaScript before you let a framework hide it from you. When you eventually pick up a library, you will understand what it is doing on your behalf, which means you will know how to fix it when it inevitably does something you did not expect.</p>
+  <p>Talking to the network is the next rung. The fetch API lets your page ask a server for data and update itself without a full reload, and understanding promises and async-await is what makes that feel natural instead of magical. Build something that loads real data — a list of films, a weather widget, a tiny search box — and handle the unglamorous cases: the request that fails, the response that is empty, the spinner that needs to stop. Robust beats clever every single time.</p>
+
+  <h2>Projects are the curriculum</h2>
+  <p>Tutorials are scaffolding, not the building. You learn by making things that are slightly too hard, getting stuck, and clawing your way out. Rebuild a landing page you admire. Clone a small app. Add a feature to something you already made. Each project should stretch exactly one new muscle while leaning on the ones you already have, so you are never completely lost and never completely comfortable. That narrow band between boredom and panic is where real learning lives.</p>
+  <p>Finish things. A half-built project teaches you the fun middle and skips the hard, instructive ending where you wrestle with edge cases, polish rough corners, and actually deploy. Shipping a small, complete, slightly embarrassing project beats hoarding ten ambitious ones that never see daylight. The portfolio that gets people hired is not the most impressive idea; it is the one that loads, works, and shows you can carry something across the finish line.</p>
+  <p>Keep a running list of project ideas so you are never stuck staring at a blank screen wondering what to build next. When one project ends, the next is already waiting, and that momentum is worth more than any single clever feature. Steal shamelessly from designs you admire, then make one deliberate change so it becomes yours instead of a copy. The point is not originality on day one; the point is reps, and reps need a queue of small, finishable things to chew through.</p>
+
+  <p><span class="sentinel">SENTINEL-BRAVO-MIDDLE.</span> This paragraph sits in the dropped middle of the page, between the first seventy percent and the last thirty percent of the text. If page awareness is working as designed, the agent will have no idea this sentence exists, even though a human reading the page can see it plainly. That asymmetry is the whole point of the head-and-tail truncation: keep the opening context and the closing call to action, quietly discard the long belly in between.</p>
+
+  <h2>Tools, in moderation</h2>
+  <p>The tooling around front-end work is enormous, and most of it is a distraction in your first year. You need a code editor, a browser with good dev tools, and version control. That is the whole list. Resist the gravitational pull of the framework-of-the-month and the elaborate build setups that influencers swear by. Every hour spent configuring a toolchain is an hour not spent writing the code that actually teaches you something. Add tools when a real problem demands them, never before.</p>
+  <p>Version control deserves special mention because it is the one "advanced" tool worth learning early. Git feels alien for a week and then becomes a safety net you cannot imagine working without. Commit often, write messages your future self can read, and learn to branch without fear. A beginner who is comfortable with Git looks far more professional than one who memorised an extra framework, because employers know which of those two habits actually survives contact with a real codebase.</p>
+  <p>Browser dev tools are an entire education hiding in plain sight. The elements panel shows you exactly how your CSS is being applied, the console surfaces your errors, the network tab reveals what your page is really downloading, and the performance tab tells you why it feels slow. Learning to read these panels turns debugging from guesswork into investigation. Most "impossible" bugs are simply questions you have not yet asked the tools sitting one keystroke away.</p>
+
+  <h2>Habits that compound</h2>
+  <p>Consistency beats intensity. An hour a day, most days, will take you further in a year than occasional marathon weekends that leave you burnt out and behind. Protect a small, regular slot and guard it like an appointment. Momentum is the real currency here; a streak of small wins keeps you in the chair, and staying in the chair is ninety percent of the job. Talent is overrated and showing up is underrated, especially in a field this learnable.</p>
+  <p>Read other people's code, even when it is uncomfortable. Open source projects, well-known libraries, and your own work from six months ago are all teachers. You will not understand all of it, and that is fine; the goal is to widen the vocabulary of patterns you recognise. Over time, code stops looking like noise and starts looking like sentences, and you begin to have opinions about which sentences are clear and which are needlessly clever. That taste is what separates a coder from an engineer.</p>
+  <p>Finally, learn in public. Write down what you figured out, answer a beginner question, post the ugly first draft. Teaching forces you to understand things one level deeper than using them does, and the act of explaining exposes the gaps you have been quietly stepping around. A trail of small public notes also happens to be the most honest portfolio there is, because it shows not just what you can build but how you think while building it.</p>
+
+  <h2>Where to go from here</h2>
+  <p>If you want a structured path instead of a pile of links, that is exactly what a good course is for. It sequences the boring fundamentals, gives you projects with a known-good ending, and saves you the months most people lose to deciding what to learn next. Whatever route you pick, the meta-lesson holds: choose a path, finish what you start, and let small daily reps do the heavy lifting while you simply keep turning up.</p>
+  <p><span class="sentinel">SENTINEL-CHARLIE-BOTTOM.</span> You made it to the end, which is more than most readers and most learners manage, and that stubbornness is the single best predictor of whether you will make it as a developer. Ready to stop reading and start building? Enrol in the Foundation course, open a blank file, and write your first line of HTML today — the rest is just repetition.</p>
+</article>
+
+<footer style="padding:40px 24px; max-width:1200px; margin:0 auto; border-top:1.5px solid #ebebeb;">
+  <p style="font-size:12px; color:#b7b7b9;">© 2024 Webtest</p>
+</footer>
+
+<!-- SalesCloser Widget - Floating Button (Proxmox staging — Page Awareness test agent) -->
+<script src="https://03458c15.staging.proxmox.salescloser.ai/js/scwa-widget.js"
+  data-agent-uuid="f207ac40-4729-4e57-bd9e-726211d29c68"
+  async></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Overview — Webtest App (SPA)</title>
+<meta name="description" content="Single-page demo that changes route via the History API and injects content dynamically, to test page-awareness freshness triggers.">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; font-size:16px; color:#111118; background:#fff; line-height:1.5; letter-spacing:-0.01em; }
+  .tester-note { background:#fff7d6; border:1px dashed #d4a72c; border-radius:10px; padding:12px 16px; margin:16px auto 8px; max-width:860px; font-size:13px; color:#7a5c00; line-height:1.5; }
+  .tabs { display:flex; gap:8px; max-width:860px; margin:24px auto 0; padding:0 24px; }
+  .tab { padding:8px 16px; border-radius:100px; border:1.5px solid #ebebeb; background:#fff; font-size:14px; font-weight:600; cursor:pointer; }
+  .tab.active { background:#111118; color:#fff; border-color:#111118; }
+  main { max-width:860px; margin:0 auto; padding:24px; }
+  h1 { font-size:32px; font-weight:700; letter-spacing:-0.02em; margin-bottom:12px; }
+  h2 { font-size:20px; font-weight:700; margin:20px 0 8px; }
+  p { color:#3a3a40; margin-bottom:12px; }
+  .review { border:1.5px solid #ebebeb; border-radius:12px; padding:16px; margin-bottom:12px; }
+  .btn { display:inline-block; margin-top:8px; padding:10px 18px; border-radius:100px; background:#2727e6; color:#fff; border:none; font-size:14px; font-weight:600; cursor:pointer; }
+</style>
+</head>
+<body>
+
+<nav style="position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.92); backdrop-filter:blur(4px); border-bottom:1.5px solid #ebebeb;">
+  <div style="max-width:1200px; margin:0 auto; padding:0 24px; display:flex; align-items:center; justify-content:space-between; height:60px;">
+    <a href="index.html" style="font-size:18px; font-weight:700; text-decoration:none; color:#111118; letter-spacing:-0.02em;">webtest</a>
+    <a href="catalog.html" style="font-size:13px; color:#111118; text-decoration:none; font-weight:500;">Catalog</a>
+  </div>
+</nav>
+
+<!-- TESTER NOTE (data-sc-private). -->
+<div data-sc-private class="tester-note">
+  <strong>🧪 Page-awareness test — SPA freshness triggers.</strong>
+  The tabs change the URL with <code>history.pushState</code> (no page reload) and swap the <code>&lt;h1&gt;</code>, title and body text;
+  the <em>Load more reviews</em> button injects new DOM. Both should fire a debounced (300&nbsp;ms) re-capture, so watch the
+  Network tab for a fresh <code>POST .../sessions/&#123;id&#125;/context</code> after each tab switch and each "load more", each with a new
+  <code>content_hash</code>. Use the browser Back button too (popstate). Then ask the agent <em>"what tab am I on?"</em> after switching.
+</div>
+
+<div class="tabs">
+  <button class="tab active" data-route="/app/overview" data-tab="overview">Overview</button>
+  <button class="tab" data-route="/app/pricing" data-tab="pricing">Pricing</button>
+  <button class="tab" data-route="/app/reviews" data-tab="reviews">Reviews</button>
+</div>
+
+<main id="view"><!-- rendered by JS --></main>
+
+<!-- SalesCloser Widget - Floating Button (Proxmox staging — Page Awareness test agent) -->
+<script src="https://03458c15.staging.proxmox.salescloser.ai/js/scwa-widget.js"
+  data-agent-uuid="f207ac40-4729-4e57-bd9e-726211d29c68"
+  async></script>
+
+<script>
+  var reviewCount = 2;
+  var views = {
+    overview: {
+      title: "Overview — Webtest App (SPA)",
+      html: '<h1>Overview</h1>'
+        + '<p>This is the Overview tab of a single-page app. Navigating between tabs never reloads the page — it only updates the URL with the History API and rewrites this region in place.</p>'
+        + '<h2>What this demonstrates</h2>'
+        + '<p>Page awareness should keep its snapshot fresh as you move around, because the loader hooks pushState/replaceState/popstate and watches the DOM for changes.</p>'
+    },
+    pricing: {
+      title: "Pricing — Webtest App (SPA)",
+      html: '<h1>Pricing</h1>'
+        + '<p>The Foundation course is a one-time payment of <strong>$299</strong> with lifetime access. Teams of five or more get 20% off, and students get 30% off with a valid student email.</p>'
+        + '<h2>Plans</h2>'
+        + '<p>Single course $299 · All-access yearly $499 · Team seat $249 each. No subscriptions are required for individual courses.</p>'
+    },
+    reviews: {
+      title: "Reviews — Webtest App (SPA)",
+      html: '<h1>Reviews</h1>'
+        + '<p>What students say about the Foundation course.</p>'
+        + '<div id="reviewList">'
+        + '<div class="review">★★★★★ "Finally understood the box model. Worth every cent." — Ada</div>'
+        + '<div class="review">★★★★★ "The projects made it click for me." — Grace</div>'
+        + '</div>'
+        + '<button class="btn" id="loadMore">Load more reviews</button>'
+    }
+  };
+
+  function render(tab, push, route) {
+    var v = views[tab];
+    document.title = v.title;
+    document.getElementById('view').innerHTML = v.html;
+    var btns = document.querySelectorAll('.tab');
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].classList.toggle('active', btns[i].getAttribute('data-tab') === tab);
+    }
+    if (push) { history.pushState({ tab: tab }, '', route); }
+    if (tab === 'reviews') {
+      document.getElementById('loadMore').addEventListener('click', function () {
+        reviewCount++;
+        var d = document.createElement('div');
+        d.className = 'review';
+        d.textContent = '★★★★★ "Dynamically injected review #' + reviewCount + ' — added without any navigation." — Tester';
+        document.getElementById('reviewList').appendChild(d);
+      });
+    }
+  }
+
+  document.querySelectorAll('.tab').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      render(btn.getAttribute('data-tab'), true, btn.getAttribute('data-route'));
+    });
+  });
+
+  window.addEventListener('popstate', function (e) {
+    var tab = (e.state && e.state.tab) || 'overview';
+    render(tab, false);
+  });
+
+  // initial render (no pushState so the real file path is preserved on first load)
+  render('overview', false);
+</script>
+</body>
+</html>

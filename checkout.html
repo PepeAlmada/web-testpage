@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — Webtest</title>
+<meta name="description" content="Secure checkout for your Webtest enrolment.">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; font-size:16px; color:#111118; background:#fff; -webkit-font-smoothing:antialiased; line-height:1.35; letter-spacing:-0.01em; }
+  .btn-primary { background:#111118; color:#fff; border-radius:100px; padding:10px 20px; font-size:14px; font-weight:500; display:inline-flex; align-items:center; gap:6px; cursor:pointer; text-decoration:none; border:1.5px solid #111118; }
+  .tester-note { background:#ffe3e3; border:1px dashed #e0556a; border-radius:10px; padding:12px 16px; margin:16px auto 8px; max-width:1000px; font-size:13px; color:#9a2330; line-height:1.5; }
+  .form-field { width:100%; background:#fff; border:1.5px solid #ebebeb; border-radius:12px; padding:14px 16px; font-size:14px; color:#111118; font-family:inherit; outline:none; }
+  .summary-row { display:flex; justify-content:space-between; font-size:14px; padding:8px 0; }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav style="position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.92); backdrop-filter:blur(4px); border-bottom:1.5px solid #ebebeb;">
+  <div style="max-width:1200px; margin:0 auto; padding:0 24px; display:flex; align-items:center; justify-content:space-between; height:60px;">
+    <a href="index.html" style="font-size:18px; font-weight:700; text-decoration:none; color:#111118; letter-spacing:-0.02em;">webtest</a>
+    <a href="checkout-help.html" style="font-size:13px; color:#111118; text-decoration:none; font-weight:500;">Checkout help</a>
+  </div>
+</nav>
+
+<!-- TESTER NOTE (data-sc-private — but on a RESTRICTED path nothing is extracted anyway). -->
+<div data-sc-private class="tester-note">
+  <strong>🧪 Page-awareness test — restricted page.</strong>
+  This path must be listed in the agent's <code>restricted_pages</code>. For flat-file serving set
+  <code>restricted_pages = /checkout.html, /account.html</code> (exact match). If you serve clean URLs
+  (e.g. <code>/checkout/</code>), use <code>/checkout, /account</code> — that prefix also covers
+  <code>/checkout/payment</code>. Expected: <strong>no</strong> <code>POST .../sessions/&#123;id&#125;/context</code> fires here,
+  and any snapshot from a previously-allowed page is cleared. Ask <em>"what's on this page?"</em> → the agent should have no page context. The card details below must never reach the agent.
+</div>
+
+<main style="max-width:1000px; margin:0 auto; padding:40px 24px;">
+  <h1 style="font-size:32px; font-weight:700; letter-spacing:-0.02em; margin-bottom:24px;">Checkout</h1>
+  <div style="display:grid; grid-template-columns:1.3fr 1fr; gap:32px; align-items:start;">
+
+    <!-- Payment form (form fields are always stripped even on allowed pages) -->
+    <form onsubmit="event.preventDefault();" style="display:flex; flex-direction:column; gap:16px;">
+      <div>
+        <label style="font-size:12px; font-weight:600; color:#58585d;">Cardholder name</label>
+        <input class="form-field" type="text" value="Ada Lovelace">
+      </div>
+      <div>
+        <label style="font-size:12px; font-weight:600; color:#58585d;">Card number</label>
+        <input class="form-field" type="text" value="4242 4242 4242 4242" autocomplete="cc-number">
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+        <div><label style="font-size:12px; font-weight:600; color:#58585d;">Expiry</label><input class="form-field" type="text" value="08/27"></div>
+        <div><label style="font-size:12px; font-weight:600; color:#58585d;">CVC</label><input class="form-field" type="text" value="311"></div>
+      </div>
+      <button type="submit" class="btn-primary" style="align-self:flex-start;">Pay $299 →</button>
+    </form>
+
+    <!-- Order summary -->
+    <aside style="background:#f6f6f6; border-radius:16px; padding:24px;">
+      <h2 style="font-size:18px; font-weight:700; margin-bottom:12px;">Order summary</h2>
+      <div class="summary-row"><span>Foundation HTML, CSS + JavaScript</span><span>$299.00</span></div>
+      <div class="summary-row"><span>Tax</span><span>$0.00</span></div>
+      <div class="summary-row" style="border-top:1.5px solid #ddd; font-weight:700; margin-top:8px; padding-top:12px;"><span>Total</span><span>$299.00</span></div>
+    </aside>
+  </div>
+</main>
+
+<footer style="padding:40px 24px; max-width:1200px; margin:0 auto; border-top:1.5px solid #ebebeb;">
+  <p style="font-size:12px; color:#b7b7b9;">© 2024 Webtest · Secure checkout</p>
+</footer>
+
+<!-- SalesCloser Widget - Floating Button (Proxmox staging — Page Awareness test agent) -->
+<script src="https://03458c15.staging.proxmox.salescloser.ai/js/scwa-widget.js"
+  data-agent-uuid="f207ac40-4729-4e57-bd9e-726211d29c68"
+  async></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bare page</title>
+<!-- EDGE CASES: no <meta name="description">; no lang on <html>; first JSON-LD is malformed; multiple <h1>. -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Malformed JSON-LD (trailing comma) — JSON.parse throws, so structured_data must fall back to null without breaking extraction. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Bare Course",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", },
+}
+</script>
+<!-- A VALID JSON-LD block follows, but the loader only reads the FIRST one, so this is intentionally ignored. -->
+<script type="application/ld+json">
+{ "@context": "https://schema.org", "@type": "Organization", "name": "Webtest" }
+</script>
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; font-size:16px; color:#111118; background:#fff; line-height:1.5; }
+  .tester-note { background:#fff7d6; border:1px dashed #d4a72c; border-radius:10px; padding:12px 16px; margin:16px auto 8px; max-width:760px; font-size:13px; color:#7a5c00; line-height:1.5; }
+  main { max-width:760px; margin:0 auto; padding:32px 24px; }
+  h1 { font-size:30px; font-weight:700; letter-spacing:-0.02em; margin-bottom:12px; }
+</style>
+</head>
+<body>
+
+<nav style="border-bottom:1.5px solid #ebebeb;">
+  <div style="max-width:1200px; margin:0 auto; padding:0 24px; display:flex; align-items:center; height:60px;">
+    <a href="index.html" style="font-size:18px; font-weight:700; text-decoration:none; color:#111118;">webtest</a>
+  </div>
+</nav>
+
+<!-- TESTER NOTE (data-sc-private). -->
+<div data-sc-private class="tester-note">
+  <strong>🧪 Page-awareness test — degenerate metadata.</strong>
+  This page has <strong>no <code>meta description</code></strong> (snapshot <code>description</code> should be empty),
+  <strong>no <code>lang</code></strong> on <code>&lt;html&gt;</code> (snapshot <code>lang</code> empty), a <strong>malformed first JSON-LD</strong>
+  block (snapshot <code>structured_data</code> should be <code>null</code> — extraction must not throw), and <strong>two <code>&lt;h1&gt;</code></strong> tags
+  (snapshot <code>h1</code> should be only the first). Spot-check the payload in the Network tab; the chat should still work.
+</div>
+
+<main>
+  <h1>First headline — this one should be captured as h1</h1>
+  <p>This is a deliberately minimal page. It exists to confirm the extractor degrades gracefully when the usual metadata is missing or malformed.</p>
+  <h1>Second headline — this one should be ignored</h1>
+  <p>A page-awareness snapshot is still produced here from the title and the visible text, even with no description, no language attribute, and an unparseable structured-data block at the top of the document.</p>
+</main>
+
+<!-- SalesCloser Widget - Floating Button (Proxmox staging — Page Awareness test agent) -->
+<script src="https://03458c15.staging.proxmox.salescloser.ai/js/scwa-widget.js"
+  data-agent-uuid="f207ac40-4729-4e57-bd9e-726211d29c68"
+  async></script>
+</body>
+</html>

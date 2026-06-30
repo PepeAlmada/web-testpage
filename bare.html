@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -7,7 +7,7 @@
 <!-- EDGE CASES: no <meta name="description">; no lang on <html>; first JSON-LD is malformed; multiple <h1>. -->
 <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- Malformed JSON-LD (trailing comma) â€” JSON.parse throws, so structured_data must fall back to null without breaking extraction. -->
+<!-- Malformed JSON-LD (trailing comma) — JSON.parse throws, so structured_data must fall back to null without breaking extraction. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -39,21 +39,21 @@
 
 <!-- TESTER NOTE (data-sc-private). -->
 <div data-sc-private class="tester-note">
-  <strong>ðŸ§ª Page-awareness test â€” degenerate metadata.</strong>
+  <strong>🧪 Page-awareness test — degenerate metadata.</strong>
   This page has <strong>no <code>meta description</code></strong> (snapshot <code>description</code> should be empty),
   <strong>no <code>lang</code></strong> on <code>&lt;html&gt;</code> (snapshot <code>lang</code> empty), a <strong>malformed first JSON-LD</strong>
-  block (snapshot <code>structured_data</code> should be <code>null</code> â€” extraction must not throw), and <strong>two <code>&lt;h1&gt;</code></strong> tags
+  block (snapshot <code>structured_data</code> should be <code>null</code> — extraction must not throw), and <strong>two <code>&lt;h1&gt;</code></strong> tags
   (snapshot <code>h1</code> should be only the first). Spot-check the payload in the Network tab; the chat should still work.
 </div>
 
 <main>
-  <h1>First headline â€” this one should be captured as h1</h1>
+  <h1>First headline — this one should be captured as h1</h1>
   <p>This is a deliberately minimal page. It exists to confirm the extractor degrades gracefully when the usual metadata is missing or malformed.</p>
-  <h1>Second headline â€” this one should be ignored</h1>
+  <h1>Second headline — this one should be ignored</h1>
   <p>A page-awareness snapshot is still produced here from the title and the visible text, even with no description, no language attribute, and an unparseable structured-data block at the top of the document.</p>
 </main>
 
-<!-- SalesCloser Widget - Floating Button (Proxmox staging â€” Page Awareness test agent) -->
+<!-- SalesCloser Widget - Floating Button (Proxmox staging — Page Awareness test agent) -->
 <script src="https://0f4477d9.staging.proxmox.salescloser.ai/js/scwa-widget.js"
   data-agent-uuid="224a9a06-13f7-485d-8bdb-0fbdca116b15"
   async></script>

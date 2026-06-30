@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My account â€” Webtest</title>
+<title>My account — Webtest</title>
 <meta name="description" content="Your Webtest account, courses and billing.">
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
@@ -22,36 +22,36 @@
   </div>
 </nav>
 
-<!-- TESTER NOTE â€” restricted page (private account data). -->
+<!-- TESTER NOTE — restricted page (private account data). -->
 <div data-sc-private class="tester-note">
-  <strong>ðŸ§ª Page-awareness test â€” restricted page.</strong>
+  <strong>🧪 Page-awareness test — restricted page.</strong>
   Add this path to <code>restricted_pages</code> (<code>/account.html</code> for flat-file serving, or
   <code>/account</code> for clean URLs). Expected: the loader extracts nothing here, so the agent cannot
-  read the email, plan or billing below. Good cross-check: visit an allowed page first, then navigate here â€”
+  read the email, plan or billing below. Good cross-check: visit an allowed page first, then navigate here —
   the previous snapshot should be <strong>cleared</strong> (the loader broadcasts a null context on a restricted path).
 </div>
 
 <main style="max-width:1000px; margin:0 auto; padding:40px 24px;">
   <h1 style="font-size:32px; font-weight:700; letter-spacing:-0.02em; margin-bottom:8px;">Welcome back, Ada</h1>
-  <p style="font-size:15px; color:#58585d; margin-bottom:24px;">Signed in as <strong>ada.lovelace@example.com</strong> Â· Member since 2023</p>
+  <p style="font-size:15px; color:#58585d; margin-bottom:24px;">Signed in as <strong>ada.lovelace@example.com</strong> · Member since 2023</p>
 
   <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:16px;">
     <div class="card">
       <h2 style="font-size:16px; font-weight:700; margin-bottom:12px;">Your courses</h2>
-      <p style="font-size:14px; color:#58585d; line-height:1.7;">Foundation HTML, CSS + JavaScript â€” 64% complete<br>UX + Web Design â€” not started</p>
+      <p style="font-size:14px; color:#58585d; line-height:1.7;">Foundation HTML, CSS + JavaScript — 64% complete<br>UX + Web Design — not started</p>
     </div>
     <div class="card">
       <h2 style="font-size:16px; font-weight:700; margin-bottom:12px;">Billing</h2>
-      <p style="font-size:14px; color:#58585d; line-height:1.7;">Plan: Lifetime Â· Card ending 4242<br>Next invoice: none Â· Lifetime access<br>Billing address: 12 Hoxton Square, London N1 6NT</p>
+      <p style="font-size:14px; color:#58585d; line-height:1.7;">Plan: Lifetime · Card ending 4242<br>Next invoice: none · Lifetime access<br>Billing address: 12 Hoxton Square, London N1 6NT</p>
     </div>
   </div>
 </main>
 
 <footer style="padding:40px 24px; max-width:1200px; margin:0 auto; border-top:1.5px solid #ebebeb;">
-  <p style="font-size:12px; color:#b7b7b9;">Â© 2024 Webtest</p>
+  <p style="font-size:12px; color:#b7b7b9;">© 2024 Webtest</p>
 </footer>
 
-<!-- SalesCloser Widget - Floating Button (Proxmox staging â€” Page Awareness test agent) -->
+<!-- SalesCloser Widget - Floating Button (Proxmox staging — Page Awareness test agent) -->
 <script src="https://0f4477d9.staging.proxmox.salescloser.ai/js/scwa-widget.js"
   data-agent-uuid="224a9a06-13f7-485d-8bdb-0fbdca116b15"
   async></script>

@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The complete guide to learning front-end development â€” Webtest</title>
-<meta name="description" content="A long-form guide to learning HTML, CSS and JavaScript from scratch â€” habits, projects, and a realistic 2024 roadmap.">
+<title>The complete guide to learning front-end development — Webtest</title>
+<meta name="description" content="A long-form guide to learning HTML, CSS and JavaScript from scratch — habits, projects, and a realistic 2024 roadmap.">
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,11 +28,11 @@
 
 <!-- TESTER NOTE (data-sc-private, not counted toward the text budget). -->
 <div data-sc-private class="tester-note">
-  <strong>ðŸ§ª Page-awareness test â€” 8&nbsp;KB head+tail truncation.</strong>
+  <strong>🧪 Page-awareness test — 8&nbsp;KB head+tail truncation.</strong>
   The visible article text is well over 8000 characters, so the loader keeps the first ~70% and last ~30% with a
-  <code> [â€¦] </code> marker in between. Three sentinels are planted: <code>SENTINEL-ALPHA-TOP</code> (very top, survives),
+  <code> […] </code> marker in between. Three sentinels are planted: <code>SENTINEL-ALPHA-TOP</code> (very top, survives),
   <code>SENTINEL-CHARLIE-BOTTOM</code> (very bottom, survives), and <code>SENTINEL-BRAVO-MIDDLE</code> (the dropped middle, removed).
-  Ask the agent about each â€” it should know ALPHA and CHARLIE but <strong>not</strong> BRAVO.
+  Ask the agent about each — it should know ALPHA and CHARLIE but <strong>not</strong> BRAVO.
 </div>
 
 <article>
@@ -46,12 +46,12 @@
   <h2>CSS is a layout language, so learn layout first</h2>
   <p>Most CSS frustration comes from skipping the box model and jumping straight to colours and fonts. Slow down. Understand how margin, border, padding and content stack up, how block and inline elements flow, and why a stray default margin can push your whole page sideways. Once the box model is muscle memory, learn Flexbox for one-dimensional layouts and Grid for two-dimensional ones. Between those two you can build almost any interface you will ever need without reaching for a framework.</p>
   <p>Responsive design is not a separate topic you study later; it is just CSS that does not assume a fixed screen. Start mobile-first, use relative units, and let content reflow instead of pinning everything to pixels. Media queries are the obvious tool, but the deeper habit is designing components that simply do not care how wide their container is. When your buttons, cards and grids bend instead of breaking, "responsive" stops being a checklist and becomes the default way you think.</p>
-  <p>Custom properties â€” CSS variables â€” are the quiet upgrade that changes how you organise a stylesheet. Define your colours, spacing scale and font sizes once at the top, reference them everywhere, and suddenly a redesign is a five-line change instead of a find-and-replace nightmare. Pair that with a consistent naming convention and your CSS reads like a small design system rather than a pile of overrides fighting each other for the last word.</p>
+  <p>Custom properties — CSS variables — are the quiet upgrade that changes how you organise a stylesheet. Define your colours, spacing scale and font sizes once at the top, reference them everywhere, and suddenly a redesign is a five-line change instead of a find-and-replace nightmare. Pair that with a consistent naming convention and your CSS reads like a small design system rather than a pile of overrides fighting each other for the last word.</p>
 
   <h2>JavaScript: small, then sturdy</h2>
   <p>JavaScript is where beginners either fall in love or fall apart, and the difference is usually pace. Learn the boring fundamentals before the exciting frameworks: variables, types, functions, arrays, objects, and the way values flow through them. Write tiny programs that do one thing. Log things to the console relentlessly. Break code on purpose so you learn what the error messages actually mean, because reading a stack trace calmly is a senior skill you can start practising on day one.</p>
   <p>The DOM is the bridge between your script and the page, and it rewards patience. Selecting elements, listening for events, and updating content in response is the core loop of almost every interactive feature you will ever write. Master that loop with plain JavaScript before you let a framework hide it from you. When you eventually pick up a library, you will understand what it is doing on your behalf, which means you will know how to fix it when it inevitably does something you did not expect.</p>
-  <p>Talking to the network is the next rung. The fetch API lets your page ask a server for data and update itself without a full reload, and understanding promises and async-await is what makes that feel natural instead of magical. Build something that loads real data â€” a list of films, a weather widget, a tiny search box â€” and handle the unglamorous cases: the request that fails, the response that is empty, the spinner that needs to stop. Robust beats clever every single time.</p>
+  <p>Talking to the network is the next rung. The fetch API lets your page ask a server for data and update itself without a full reload, and understanding promises and async-await is what makes that feel natural instead of magical. Build something that loads real data — a list of films, a weather widget, a tiny search box — and handle the unglamorous cases: the request that fails, the response that is empty, the spinner that needs to stop. Robust beats clever every single time.</p>
 
   <h2>Projects are the curriculum</h2>
   <p>Tutorials are scaffolding, not the building. You learn by making things that are slightly too hard, getting stuck, and clawing your way out. Rebuild a landing page you admire. Clone a small app. Add a feature to something you already made. Each project should stretch exactly one new muscle while leaning on the ones you already have, so you are never completely lost and never completely comfortable. That narrow band between boredom and panic is where real learning lives.</p>
@@ -72,14 +72,14 @@
 
   <h2>Where to go from here</h2>
   <p>If you want a structured path instead of a pile of links, that is exactly what a good course is for. It sequences the boring fundamentals, gives you projects with a known-good ending, and saves you the months most people lose to deciding what to learn next. Whatever route you pick, the meta-lesson holds: choose a path, finish what you start, and let small daily reps do the heavy lifting while you simply keep turning up.</p>
-  <p><span class="sentinel">SENTINEL-CHARLIE-BOTTOM.</span> You made it to the end, which is more than most readers and most learners manage, and that stubbornness is the single best predictor of whether you will make it as a developer. Ready to stop reading and start building? Enrol in the Foundation course, open a blank file, and write your first line of HTML today â€” the rest is just repetition.</p>
+  <p><span class="sentinel">SENTINEL-CHARLIE-BOTTOM.</span> You made it to the end, which is more than most readers and most learners manage, and that stubbornness is the single best predictor of whether you will make it as a developer. Ready to stop reading and start building? Enrol in the Foundation course, open a blank file, and write your first line of HTML today — the rest is just repetition.</p>
 </article>
 
 <footer style="padding:40px 24px; max-width:1200px; margin:0 auto; border-top:1.5px solid #ebebeb;">
-  <p style="font-size:12px; color:#b7b7b9;">Â© 2024 Webtest</p>
+  <p style="font-size:12px; color:#b7b7b9;">© 2024 Webtest</p>
 </footer>
 
-<!-- SalesCloser Widget - Floating Button (Proxmox staging â€” Page Awareness test agent) -->
+<!-- SalesCloser Widget - Floating Button (Proxmox staging — Page Awareness test agent) -->
 <script src="https://0f4477d9.staging.proxmox.salescloser.ai/js/scwa-widget.js"
   data-agent-uuid="224a9a06-13f7-485d-8bdb-0fbdca116b15"
   async></script>

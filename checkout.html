@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Checkout â€” Webtest</title>
+<title>Checkout — Webtest</title>
 <meta name="description" content="Secure checkout for your Webtest enrolment.">
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
@@ -25,14 +25,14 @@
   </div>
 </nav>
 
-<!-- TESTER NOTE (data-sc-private â€” but on a RESTRICTED path nothing is extracted anyway). -->
+<!-- TESTER NOTE (data-sc-private — but on a RESTRICTED path nothing is extracted anyway). -->
 <div data-sc-private class="tester-note">
-  <strong>ðŸ§ª Page-awareness test â€” restricted page.</strong>
+  <strong>🧪 Page-awareness test — restricted page.</strong>
   This path must be listed in the agent's <code>restricted_pages</code>. For flat-file serving set
   <code>restricted_pages = /checkout.html, /account.html</code> (exact match). If you serve clean URLs
-  (e.g. <code>/checkout/</code>), use <code>/checkout, /account</code> â€” that prefix also covers
+  (e.g. <code>/checkout/</code>), use <code>/checkout, /account</code> — that prefix also covers
   <code>/checkout/payment</code>. Expected: <strong>no</strong> <code>POST .../sessions/&#123;id&#125;/context</code> fires here,
-  and any snapshot from a previously-allowed page is cleared. Ask <em>"what's on this page?"</em> â†’ the agent should have no page context. The card details below must never reach the agent.
+  and any snapshot from a previously-allowed page is cleared. Ask <em>"what's on this page?"</em> → the agent should have no page context. The card details below must never reach the agent.
 </div>
 
 <main style="max-width:1000px; margin:0 auto; padding:40px 24px;">
@@ -53,7 +53,7 @@
         <div><label style="font-size:12px; font-weight:600; color:#58585d;">Expiry</label><input class="form-field" type="text" value="08/27"></div>
         <div><label style="font-size:12px; font-weight:600; color:#58585d;">CVC</label><input class="form-field" type="text" value="311"></div>
       </div>
-      <button type="submit" class="btn-primary" style="align-self:flex-start;">Pay $299 â†’</button>
+      <button type="submit" class="btn-primary" style="align-self:flex-start;">Pay $299 →</button>
     </form>
 
     <!-- Order summary -->
@@ -67,10 +67,10 @@
 </main>
 
 <footer style="padding:40px 24px; max-width:1200px; margin:0 auto; border-top:1.5px solid #ebebeb;">
-  <p style="font-size:12px; color:#b7b7b9;">Â© 2024 Webtest Â· Secure checkout</p>
+  <p style="font-size:12px; color:#b7b7b9;">© 2024 Webtest · Secure checkout</p>
 </footer>
 
-<!-- SalesCloser Widget - Floating Button (Proxmox staging â€” Page Awareness test agent) -->
+<!-- SalesCloser Widget - Floating Button (Proxmox staging — Page Awareness test agent) -->
 <script src="https://0f4477d9.staging.proxmox.salescloser.ai/js/scwa-widget.js"
   data-agent-uuid="224a9a06-13f7-485d-8bdb-0fbdca116b15"
   async></script>

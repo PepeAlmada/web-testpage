@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Overview — Webtest App (SPA)</title>
+<title>Overview â€” Webtest App (SPA)</title>
 <meta name="description" content="Single-page demo that changes route via the History API and injects content dynamically, to test page-awareness freshness triggers.">
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
@@ -32,7 +32,7 @@
 
 <!-- TESTER NOTE (data-sc-private). -->
 <div data-sc-private class="tester-note">
-  <strong>🧪 Page-awareness test — SPA freshness triggers.</strong>
+  <strong>ðŸ§ª Page-awareness test â€” SPA freshness triggers.</strong>
   The tabs change the URL with <code>history.pushState</code> (no page reload) and swap the <code>&lt;h1&gt;</code>, title and body text;
   the <em>Load more reviews</em> button injects new DOM. Both should fire a debounced (300&nbsp;ms) re-capture, so watch the
   Network tab for a fresh <code>POST .../sessions/&#123;id&#125;/context</code> after each tab switch and each "load more", each with a new
@@ -47,35 +47,35 @@
 
 <main id="view"><!-- rendered by JS --></main>
 
-<!-- SalesCloser Widget - Floating Button (Proxmox staging — Page Awareness test agent) -->
-<script src="https://03458c15.staging.proxmox.salescloser.ai/js/scwa-widget.js"
-  data-agent-uuid="f207ac40-4729-4e57-bd9e-726211d29c68"
+<!-- SalesCloser Widget - Floating Button (Proxmox staging â€” Page Awareness test agent) -->
+<script src="https://0f4477d9.staging.proxmox.salescloser.ai/js/scwa-widget.js"
+  data-agent-uuid="224a9a06-13f7-485d-8bdb-0fbdca116b15"
   async></script>
 
 <script>
   var reviewCount = 2;
   var views = {
     overview: {
-      title: "Overview — Webtest App (SPA)",
+      title: "Overview â€” Webtest App (SPA)",
       html: '<h1>Overview</h1>'
-        + '<p>This is the Overview tab of a single-page app. Navigating between tabs never reloads the page — it only updates the URL with the History API and rewrites this region in place.</p>'
+        + '<p>This is the Overview tab of a single-page app. Navigating between tabs never reloads the page â€” it only updates the URL with the History API and rewrites this region in place.</p>'
         + '<h2>What this demonstrates</h2>'
         + '<p>Page awareness should keep its snapshot fresh as you move around, because the loader hooks pushState/replaceState/popstate and watches the DOM for changes.</p>'
     },
     pricing: {
-      title: "Pricing — Webtest App (SPA)",
+      title: "Pricing â€” Webtest App (SPA)",
       html: '<h1>Pricing</h1>'
         + '<p>The Foundation course is a one-time payment of <strong>$299</strong> with lifetime access. Teams of five or more get 20% off, and students get 30% off with a valid student email.</p>'
         + '<h2>Plans</h2>'
-        + '<p>Single course $299 · All-access yearly $499 · Team seat $249 each. No subscriptions are required for individual courses.</p>'
+        + '<p>Single course $299 Â· All-access yearly $499 Â· Team seat $249 each. No subscriptions are required for individual courses.</p>'
     },
     reviews: {
-      title: "Reviews — Webtest App (SPA)",
+      title: "Reviews â€” Webtest App (SPA)",
       html: '<h1>Reviews</h1>'
         + '<p>What students say about the Foundation course.</p>'
         + '<div id="reviewList">'
-        + '<div class="review">★★★★★ "Finally understood the box model. Worth every cent." — Ada</div>'
-        + '<div class="review">★★★★★ "The projects made it click for me." — Grace</div>'
+        + '<div class="review">â˜…â˜…â˜…â˜…â˜… "Finally understood the box model. Worth every cent." â€” Ada</div>'
+        + '<div class="review">â˜…â˜…â˜…â˜…â˜… "The projects made it click for me." â€” Grace</div>'
         + '</div>'
         + '<button class="btn" id="loadMore">Load more reviews</button>'
     }
@@ -95,7 +95,7 @@
         reviewCount++;
         var d = document.createElement('div');
         d.className = 'review';
-        d.textContent = '★★★★★ "Dynamically injected review #' + reviewCount + ' — added without any navigation." — Tester';
+        d.textContent = 'â˜…â˜…â˜…â˜…â˜… "Dynamically injected review #' + reviewCount + ' â€” added without any navigation." â€” Tester';
         document.getElementById('reviewList').appendChild(d);
       });
     }
